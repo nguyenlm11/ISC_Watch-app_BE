@@ -3,7 +3,7 @@ const Watch = require('../models/watch');
 
 class OrderController {
     async createOrder(req, res) {
-        const { items, paymentMethod } = req.body;
+        const { items, paymentMethod, deliveryInfo } = req.body;
         const member = req.member._id;
 
         try {
@@ -21,6 +21,8 @@ class OrderController {
                 items,
                 total,
                 paymentMethod,
+                status: 'Pending',
+                deliveryInfo, // Thêm thông tin giao hàng
             });
 
             await newOrder.save();

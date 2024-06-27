@@ -10,6 +10,11 @@ const orderSchema = new Schema({
     total: { type: Number, required: true },
     paymentMethod: { type: String, required: true },
     status: { type: String, default: 'Pending' },
+    deliveryInfo: {
+        name: { type: String, required: true },
+        address: { type: String, required: true },
+        phoneNumber: { type: String, required: true },
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);
