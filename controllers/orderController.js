@@ -22,7 +22,7 @@ class OrderController {
                 total,
                 paymentMethod,
                 status: 'Pending',
-                deliveryInfo, // Thêm thông tin giao hàng
+                deliveryInfo,
             });
 
             await newOrder.save();
@@ -46,7 +46,7 @@ class OrderController {
             const orders = await Order.find({}).populate('member', 'membername').populate('items.watch');
             res.json(orders);
         } catch (err) {
-            res.status(500).json({ error: err.message });
+            res.status (500).json({ error: err.message });
         }
     }
 
